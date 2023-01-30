@@ -32,4 +32,11 @@ public class ConfigurationSingletonTest {
         assertThat(orderService.getMemberRepository()).isSameAs(memberRepository);
     }
 
+    @Test
+    void configurationDeep() {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+        AppConfig bean = applicationContext.getBean(AppConfig.class);
+
+        System.out.println("bean = " + bean);
+    }
 }
